@@ -1,0 +1,46 @@
+@define-color foreground #dddddd;
+@define-color foreground-inactive #aaaaaa;
+@define-color background #000000;
+
+* {
+    font-family: "JetBrainsMono Nerd Font","PingFang UI SC";
+    font-weight: 500;
+    font-size: 13px;
+    margin:1px;
+}
+
+#waybar {
+    color: @foreground;
+    background-color: @background;
+}
+#clock,
+#backlight,
+#battery,
+#cpu,
+#idle_inhibitor,
+#language,
+#memory,
+#mode,
+#network,
+#bluetooth,
+#pulseaudio,
+#temperature,
+#window,
+#workspaces,
+#wireplumber,
+#battery,
+#mpris,
+#temperature{
+    padding-left:8px;
+    padding-right:8px;
+    color: @foreground;
+    border-bottom: 1px solid #dddddd;
+}
+
+#tray{
+    padding-right:4px;
+    border-bottom: 1px solid #dddddd;
+}
+#custom-notification{
+    padding-right:4px;
+}
