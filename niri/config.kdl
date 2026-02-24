@@ -316,15 +316,15 @@ layout {
         // bottom 64
     }
     tab-indicator {
-        place-within-column     // 关键！放进列内，gaps=0 也不会被挤掉
-        position "left"         // 左边（或 "top" 试顶部，更像 bar）
-        width 4                // 加粗到 10-16 像素，明显可见
-        gap 0                   // 小间隙，避免完全贴边但不挤
-        active-color "#3daee9"  // 亮红/亮色，提高对比（改成你喜欢的）
+        place-within-column
+        position "left"
+        width 4
+        gap 0
+        active-color "#3daee9"
         inactive-color "#555555"
         urgent-color "#ff0000"
-        length total-proportion=1.0  // 占满列高（默认是 0.5，半高容易漏看）
-        hide-when-single-tab     // 保持单窗口隐藏（可选关掉测试：注释这行）
+        length total-proportion=1.0
+        hide-when-single-tab
     }
 }
 
@@ -346,6 +346,7 @@ layout {
 spawn-at-startup "waybar"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "swayosd-server"
+// spawn-at-startup "kded6"
 spawn-sh-at-startup "swaybg -i /home/Scranloz/Pictures/Wallpaper/wall1.png -m fill"
 spawn-sh-at-startup "swaync"
 spawn-sh-at-startup "swaync-client -df"
@@ -430,15 +431,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id="flameshot"  // 或 title~="flameshot" 如果 app-id 不准
+    match app-id="flameshot"
     open-floating true
-    // default-floating-width 100%   // 或 90% / fixed 1920 等，根据你的屏
-    // default-floating-height 100%
-    // default-floating-position { x = "center"; y = "center"; }  // 居中打开
-    // 可选：如果还是有边框问题
-    // animations{
-    //     off
-    // }
     draw-border-with-background false
 }
 
@@ -463,13 +457,9 @@ window-rule {
 
 
 window-rule {
-    // Mathematica 的 splash 通常 app-id 是 "com.wolfram.Mathematica" 或 "Mathematica"
-    // 先用 niri msg pick-window 点一下 splash 确认 app-id 和 title
-    // match app-id="com.wolfram.Mathematica"  // 或 match app-id~"mathematica" 模糊匹配
-    match title="WolframNB"  // 如果 app-id 不准可以用 title 辅助
-
-    open-floating true          // 确保浮动（通常已自动，但保险起见）
-    max-width 250               // 单位：逻辑像素，调成你觉得合适的大小，比如 600~1000
+    match title="WolframNB"
+    open-floating true
+    max-width 250
     max-height 250
 }
 
@@ -504,8 +494,8 @@ binds {
     Shift+XF86Calculator {spawn-sh "/home/Scranloz/Documents/Script/switch-to-wolfram.sh";}
 
     Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
-    Super+E { spawn "dolphin"; }
-    Super+Alt+E { spawn-sh "dolphin --new-window ~"; }
+    Super+Alt+E { spawn "dolphin"; }
+    Super+E { spawn-sh "dolphin --new-window ~"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -738,7 +728,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Shift+Print { screenshot-screen; }
     Super+Print { screenshot-window; }
     Alt+Print { spawn-sh "flameshot gui"; }
 
