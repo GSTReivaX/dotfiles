@@ -339,8 +339,6 @@ layout {
 //     place-within-backdrop true
 // }
 
-// // workspace 不再自己画背景
-
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
