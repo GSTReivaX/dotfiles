@@ -485,7 +485,8 @@ binds {
     Mod+Alt+Q { spawn "sh" "-c" "niri msg action spawn -- kitty;sleep 0.25;niri msg action focus-column-left; niri msg action consume-window-into-column; "; }
     Alt+Space { spawn-sh "/home/Scranloz/Documents/Script/switch-window.sh"; }
     // Mod+Z hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
-    Super+Shift+XF86TouchpadOff { spawn-sh "rofi -show drun"; }
+    // Super+Shift+XF86TouchpadOff { spawn-sh "rofi -show drun"; }
+    Super+Shift+F23 { spawn-sh "rofi -show drun"; }
     XF86Launch2 { spawn "dida365"; }
     // XF86Launch2 { spawn "dida365"; }
     XF86Calculator {spawn "qalculate-qt";}
