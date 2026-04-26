@@ -1,3 +1,12 @@
+(ido-mode 1)
+(ido-everywhere 1)
+(fido-mode 1)
+
+(global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "<C-tab>") 'other-window)
+
+(which-key-mode)
+(which-key-setup-side-window-bottom)
 (setq custom-file "~/.emacs.custom.el")
 (add-to-list 'load-path "~/.emacs.local/")
 
@@ -11,7 +20,7 @@
   :ensure t
   :config
   (ligature-set-ligatures 'prog-mode
-    '("->" "->>" "<-" "<--" "<->" "<-->" "<=>" "<==>" "=>" "==>" "<=" "<=="
+    '("->" "->>" "<-" "<--" "<->" "<-->" "<=>" "<==>" "=>" "==>" "<=" ">=" "<=="
       "==" "===" "!=" "!==" "<>" "<<" ">>" "|||" "&&&" "||>" "<||" "|>" "<|"
       "::" ":::" ":=" "?." "?:" "???" ";;" ";;;" "/=" "/==" "++" "--" "+++"
       "---" "**" "***" "*/" "/*" "///" "//" "/*/" "..." ".."
@@ -20,16 +29,6 @@
 
   (global-ligature-mode t)
 )
-
-(ido-mode 1)
-(ido-everywhere 1)
-(fido-mode 1)
-
-(global-set-key (kbd "<f5>") 'compile)
-(global-set-key (kbd "<C-tab>") 'other-window)
-
-(which-key-mode)
-(which-key-setup-side-window-bottom)
 
 (setq compilation-scroll-output t)
 
