@@ -15,7 +15,6 @@
 (scroll-bar-mode 0)
 (global-display-line-numbers-mode 1)
 
-(define-key input-decode-map [capslock] [control])
 
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font Mono-10")
 (use-package ligature

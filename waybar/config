@@ -4,7 +4,7 @@
   //  "output":"eDP-1",
     "reload_style_on_change": true,
     "modules-left":["niri/window"],
-    "modules-right": ["clock","mpris","network", "cpu","memory", "temperature","backlight","wireplumber", "battery", "tray","keyboard-state","custom/notification"],
+    "modules-right": ["clock","mpris","network", "cpu","memory", "temperature","backlight","wireplumber", "battery", "tray","keyboard-state"],
     "hyprland/workspaces": {
         "format": "<span size='larger'>{icon}</span>",
         "on-click": "activate",

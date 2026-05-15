@@ -17,8 +17,8 @@
  '(make-backup-files nil)
  '(package-selected-packages
    '(erc flycheck flycheck-inline gruber-darker-theme kdl-mode ligature
-         lsp-mode lsp-ui magit multiple-cursors smex use-package
-         which-key)))
+         lsp-mode lsp-ui magit multiple-cursors smex sudo-edit
+         use-package vterm which-key)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

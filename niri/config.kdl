@@ -40,7 +40,7 @@ input {
         // off
         // tap-to-click:
         tap
-        dwt
+        // dwt
         // drag false
         // drag-lock
         natural-scroll
@@ -77,6 +77,7 @@ input {
     tablet{
         // off
         map-to-output "eDP-2"
+        // map-to-focused-output
         // left-handed
         // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
     }
@@ -87,7 +88,7 @@ input {
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
 
-    // disable-power-key-handling
+    disable-power-key-handling
     workspace-auto-back-and-forth
 
     // mod-key "Super"
@@ -134,7 +135,7 @@ input {
 output "HDMI-A-1"{
     position x=0 y=0
     transform "normal"
-    mode "1920x1080@100.000"
+    mode "2560x1440@59.951"
 
 
 
@@ -142,13 +143,14 @@ output "HDMI-A-1"{
 output "eDP-1"{
     // off
     mode "2560x1600@240.000"
-    focus-at-startup
+    // focus-at-startup
     // position x=1920 y=0
     scale 2
 }
 output "eDP-2"{
     // off
     mode "2560x1600@240.000"
+    // mode "2560x1600@60.000"
     focus-at-startup
     // position x=1920 y=0
     scale 2
@@ -343,12 +345,13 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "dms" "run"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "swayosd-server"
+// spawn-at-startup "swayosd-server"
 // spawn-at-startup "kded6"
 spawn-sh-at-startup "swaybg -i /home/Scranloz/Pictures/Wallpaper/wall1.png -m fill"
-spawn-sh-at-startup "swaync"
-spawn-sh-at-startup "swaync-client -df"
+// spawn-sh-at-startup "swaync"
+// spawn-sh-at-startup "swaync-client -df"
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
 spawn-sh-at-startup "kdeconnect-indicator"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
@@ -411,6 +414,31 @@ window-rule {
     clip-to-geometry true
     default-column-width {}
 }
+
+// blur {
+//     // off
+//     passes 3
+//     offset 3
+//     noise 0.02
+//     saturation 1.5
+// }
+//
+// window-rule {
+//     match app-id="org.kde.kate"
+//     opacity 0.98
+//     background-effect {
+//         blur true
+//         xray true
+//     }
+// }
+//
+// layer-rule {
+//     match namespace="^launcher$"
+//
+//     background-effect {
+//         blur true
+//     }
+// }
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -489,6 +517,7 @@ binds {
     // Super+Shift+XF86TouchpadOff { spawn-sh "rofi -show drun"; }
     Super+Shift+F23 { spawn-sh "rofi -show drun"; }
     XF86Launch2 { spawn "dida365"; }
+    XF86PowerOff { spawn "wlogout"; }
     // XF86Launch2 { spawn "dida365"; }
     XF86Calculator {spawn "qalculate-qt";}
     Shift+XF86Calculator {spawn-sh "/home/Scranloz/Documents/Script/switch-to-wolfram.sh";}
@@ -517,9 +546,6 @@ binds {
     XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-
-    Alt+Mod+Shift+E allow-when-locked=true { spawn "wlogout"; }
-
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -597,8 +623,6 @@ binds {
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+Down         { move-workspace-down; }
     Mod+Shift+Up         { move-workspace-up; }
 
@@ -744,7 +768,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    Ctrl+Alt+Delete { spawn "gnome-system-monitor"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
@@ -832,3 +856,9 @@ recent-windows {
         Mod+Shift+grave { previous-window filter="app-id"; }
     }
 }
+
+include "dms/windowrules.kdl"
+
+include "dms/outputs.kdl"
+
+include "dms/cursor.kdl"
